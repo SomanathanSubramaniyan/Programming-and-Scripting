@@ -1,6 +1,7 @@
 # Somu 05-02-2018
 # Collatz: https://en.wikipedia.org/wiki/Collatz_conjecture
 
+
 # Function to calcuate Collatz conjecture
 def collatz(number):
     if number % 2 == 0:
