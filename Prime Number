@@ -1,0 +1,22 @@
+def newisThisaPrimeNumber (orgino, n):
+    answer=True
+#print ("index = " + str(n-1))
+#print ("origno = " + str(orgino))
+#print (orgino % (n-1))
+    
+    if n-1 > 2:
+        if (orgino % (n-1)) == 0:
+#print ("\nI am here.")        
+            answer = False
+            return answer 
+        else:
+            return newisThisaPrimeNumber(orgino,n-1)
+    else:
+         return answer
+            
+
+#print (newisThisaPrimeNumber(29,29))
+
+for index in range(2,int(input("\nEnter the range : "))):
+    if newisThisaPrimeNumber(index,index) :
+        print ("\nPrime No: " + str(index))
