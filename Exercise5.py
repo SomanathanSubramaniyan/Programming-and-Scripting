@@ -7,27 +7,37 @@
 
 # Read first line from the data file 
 # Read the petal/Sepal length and width 
+
 counter = 1
-Petal_length = 1.0
-Petal_width = 1.0
-Sepal_length = 1.0
-Sepal_width = 1.0
+Gplen,Gpwid,Gslen,Gswid = '','', '', ''
+Gname,Gnamei,Gnameo = '','',''
+
+# Function to print the name, petel length, petal width, Sepal length and sepal width
+def printiris(name,plen,pwid,slen,swid):
+    print ('\n',name) 
+    print ("{0:12} ==> {1:2}".format("Petal Length", (plen) ))
+    print ("{0:12} ==> {1:2}".format("Petal Width",  (pwid) ))
+    print ("{0:12} ==> {1:2}".format("Sepal Length", (slen) ))
+    print ("{0:12} ==> {1:2}".format("Sepal Width",  (swid) ))
+
+flowers = set()
+with open("data/iris.csv") as f:
+        for line in f:
+            Gname   = str(line.split(',')[4]).rstrip()
+            flowers.add(Gname)
+print (flowers)
 
 with open("data/iris.csv") as f:
         for line in f:
-            if counter == 2:
-                break
-            else:
-                Petal_length = line.split(',')[0]
-                Petal_width  = line.split(',')[1]
-                Sepal_length = line.split(',')[2]
-                Sepal_width  = line.split(',')[3]
-                Flowername   = line.split(',')[4]
-               
-                counter += 1
-
-print ("{0:15} ==> {1:10f}".format("Petal Length", float(Petal_length) ))
-print ("{0:15} ==> {1:10f}".format("Petal Width", float(Petal_width) ))
-print ("{0:15} ==> {1:10f}".format("Sepal Length", float(Sepal_length) ))
-print ("{0:15} ==> {1:10f}".format("Sepal Width", float(Sepal_width) ))
+            Gnameo   = str(line.split(',')[4])
+            if Gnameo == 'Iris-virginica':
+            Gplen = Gplen + " " + str(line.split(',')[0])
+            Gpwid = Gpwid + " " + str(line.split(',')[1])
+            Gslen = Gslen + " " + str(line.split(',')[2])
+            Gswid = Gswid + " " + str(line.split(',')[3])
+            #   printiris(Gnameo,Gplen,Gpwid,Gslen,Gswid)
+            #  Gplen,Gpwid,Gslen,Gswid = '','', '', ''
+            Gnamei   = str(line.split(',')[4])
+            counter += 1
+                    
 
